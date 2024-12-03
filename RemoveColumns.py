@@ -58,7 +58,7 @@ for review in reviews:
 word_counts = Counter(words)
 
 # Get the 100 most common words --> becomes the stop list
-most_common_words = [word for word,count in word_counts.most_common(100)]
+most_common_words = [word for word,count in word_counts.most_common(10)]
 print(most_common_words)
 
 for review in reviews:
@@ -68,10 +68,11 @@ for review in reviews:
 
 # Write the grouped reviews to a new file
 with open(out_path, 'w') as output_file:
-    json.dump({'words:':words},output_file)
-    output_file.write('\n')
+   # json.dump({'words:':word_counts},output_file)
+    #output_file.write('\n')
     for review in reviews:
-        json.dump(review, output_file)
-        output_file.write('\n')
+        if review['tokens'] != []:
+            json.dump(review, output_file)
+            output_file.write('\n')
 
 print("Grouped reviews have been written to 'grouped_reviews.json'.")

@@ -58,7 +58,7 @@ for review in reviews:
 word_counts = Counter(words)
 
 # Get the 100 most common words --> becomes the stop list
-most_common_words = [word for word,count in word_counts.most_common(10)]
+most_common_words = [word for word,count in word_counts.most_common(0)]
 print(most_common_words)
 
 for review in reviews:

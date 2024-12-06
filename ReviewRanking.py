@@ -65,7 +65,7 @@ with open(out_path, 'w') as output_file:
         for review in good_reviews[pid]:
             if len(review['tokens']) <= (1023 - len(review_buffer)):
                 review_buffer += review['tokens']
-                review_buffer += "\n"
+                review_buffer += ". "
             else:
                 break
 
